@@ -5,6 +5,10 @@
  */
 package josephmoscoso_lab9;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Joseph
@@ -27,6 +31,27 @@ public class principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_usuarios = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jb_crearusuario = new javax.swing.JButton();
+        jb_listarusuarios = new javax.swing.JButton();
+        jd_crearuser = new javax.swing.JDialog();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jb_crear = new javax.swing.JButton();
+        tf_nombre = new javax.swing.JTextField();
+        js_edad = new javax.swing.JSpinner();
+        tf_user = new javax.swing.JTextField();
+        pf_pass = new javax.swing.JPasswordField();
+        jd_listaruser = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tb_users = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        jb_eliminaruser = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jb_usuarios = new javax.swing.JButton();
         jb_canciones = new javax.swing.JButton();
@@ -35,12 +60,197 @@ public class principal extends javax.swing.JFrame {
         jb_guardar = new javax.swing.JButton();
         jb_cargar = new javax.swing.JButton();
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Usuarios");
+
+        jb_crearusuario.setText("Crear Usuario");
+        jb_crearusuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearusuarioMouseClicked(evt);
+            }
+        });
+
+        jb_listarusuarios.setText("Listar Usuarios");
+        jb_listarusuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_listarusuariosMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_usuariosLayout = new javax.swing.GroupLayout(jd_usuarios.getContentPane());
+        jd_usuarios.getContentPane().setLayout(jd_usuariosLayout);
+        jd_usuariosLayout.setHorizontalGroup(
+            jd_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_usuariosLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addGroup(jd_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_usuariosLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jd_usuariosLayout.createSequentialGroup()
+                        .addComponent(jb_crearusuario)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jd_usuariosLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jb_listarusuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 108, Short.MAX_VALUE))
+        );
+        jd_usuariosLayout.setVerticalGroup(
+            jd_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_usuariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jb_crearusuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jb_listarusuarios)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("Creacion de usuario");
+
+        jLabel4.setText("Nombre");
+
+        jLabel5.setText("Edad");
+
+        jLabel6.setText("Username");
+
+        jLabel7.setText("Password");
+
+        jb_crear.setText("Crear");
+        jb_crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearMouseClicked(evt);
+            }
+        });
+
+        js_edad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+
+        javax.swing.GroupLayout jd_crearuserLayout = new javax.swing.GroupLayout(jd_crearuser.getContentPane());
+        jd_crearuser.getContentPane().setLayout(jd_crearuserLayout);
+        jd_crearuserLayout.setHorizontalGroup(
+            jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearuserLayout.createSequentialGroup()
+                .addGroup(jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crearuserLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel3))
+                    .addGroup(jd_crearuserLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                            .addComponent(js_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_user)
+                            .addComponent(pf_pass))))
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearuserLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jb_crear)
+                .addGap(167, 167, 167))
+        );
+        jd_crearuserLayout.setVerticalGroup(
+            jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearuserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(js_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jd_crearuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(pf_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jb_crear)
+                .addGap(19, 19, 19))
+        );
+
+        tb_users.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tb_users.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tb_users);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setText("Usuarios");
+
+        jb_eliminaruser.setText("Eliminar");
+        jb_eliminaruser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_eliminaruserMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setText("*Seleccione en la tabla y luego presione boton para eliminar");
+
+        javax.swing.GroupLayout jd_listaruserLayout = new javax.swing.GroupLayout(jd_listaruser.getContentPane());
+        jd_listaruser.getContentPane().setLayout(jd_listaruserLayout);
+        jd_listaruserLayout.setHorizontalGroup(
+            jd_listaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listaruserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_listaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listaruserLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listaruserLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jd_listaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listaruserLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(239, 239, 239))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listaruserLayout.createSequentialGroup()
+                                .addComponent(jb_eliminaruser)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)
+                                .addContainerGap())))))
+        );
+        jd_listaruserLayout.setVerticalGroup(
+            jd_listaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listaruserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_listaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_eliminaruser)
+                    .addComponent(jLabel9))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Reproductor de musica");
 
         jb_usuarios.setText("Usuarios");
+        jb_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_usuariosMouseClicked(evt);
+            }
+        });
 
         jb_canciones.setText("Canciones");
 
@@ -101,11 +311,101 @@ public class principal extends javax.swing.JFrame {
                 .addComponent(jb_guardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jb_cargar)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_usuariosMouseClicked
+        // TODO add your handling code here:
+        jd_usuarios.setModal(true);
+        jd_usuarios.pack();
+        jd_usuarios.setLocationRelativeTo(this);
+        jd_usuarios.setVisible(true);
+    }//GEN-LAST:event_jb_usuariosMouseClicked
+
+    private void jb_crearusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearusuarioMouseClicked
+        // TODO add your handling code here:
+        jd_crearuser.setModal(true);
+        jd_crearuser.pack();
+        jd_crearuser.setLocationRelativeTo(this);
+        jd_crearuser.setVisible(true);
+    }//GEN-LAST:event_jb_crearusuarioMouseClicked
+
+    private void jb_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMouseClicked
+        // TODO add your handling code here:
+        try {
+            user.add(new usuarios(tf_nombre.getText(), (Integer) js_edad.getValue(), tf_user.getText(), pf_pass.getText()));
+            tf_nombre.setText("");
+            tf_user.setText("");
+            pf_pass.setText("");
+            JOptionPane.showMessageDialog(jd_crearuser, "Usuario registrado con exito");
+            jd_crearuser.setVisible(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_crearuser, "Error, dato incorrecto\nvuelva a intentarlo");
+        }
+    }//GEN-LAST:event_jb_crearMouseClicked
+
+    private void jb_listarusuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_listarusuariosMouseClicked
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel m = new DefaultTableModel();
+            m.addColumn("Nombre");
+            m.addColumn("Edad");
+            m.addColumn("Username");
+            m.addColumn("Contraseña");
+            tb_users.setModel(m);
+            String[] col = new String[4];
+            for (int i = 0; i < user.size(); i++) {
+                col[0] = user.get(i).getNombre();
+                col[1] = Integer.toString(user.get(i).getEdad());
+                col[2] = user.get(i).getUser();
+                col[3] = user.get(i).getContra();
+                m.addRow(col);
+            }
+            tb_users.setModel(m);
+            jd_listaruser.setModal(true);
+            jd_listaruser.pack();
+            jd_listaruser.setLocationRelativeTo(this);
+            jd_listaruser.setVisible(true);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jb_listarusuariosMouseClicked
+    public void actualizarusers() {
+        try {
+            DefaultTableModel m = new DefaultTableModel();
+            m.addColumn("Nombre");
+            m.addColumn("Edad");
+            m.addColumn("Username");
+            m.addColumn("Contraseña");
+            tb_users.setModel(m);
+            String[] col = new String[4];
+            for (int i = 0; i < user.size(); i++) {
+                col[0] = user.get(i).getNombre();
+                col[1] = Integer.toString(user.get(i).getEdad());
+                col[2] = user.get(i).getUser();
+                col[3] = user.get(i).getContra();
+                m.addRow(col);
+            }
+            tb_users.setModel(m);
+        } catch (Exception e) {
+        }
+    }
+    private void jb_eliminaruserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminaruserMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (tb_users.getSelectedRow() >= 0) {
+                for (int i = 0; i < user.size(); i++) {
+                    if (tb_users.getValueAt(tb_users.getSelectedRow(), 2).equals(user.get(i).getUser())) {
+                        user.remove(i);
+                        actualizarusers();
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jb_eliminaruserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -144,11 +444,34 @@ public class principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jb_albums;
     private javax.swing.JButton jb_canciones;
     private javax.swing.JButton jb_cargar;
+    private javax.swing.JButton jb_crear;
+    private javax.swing.JButton jb_crearusuario;
+    private javax.swing.JButton jb_eliminaruser;
     private javax.swing.JButton jb_guardar;
+    private javax.swing.JButton jb_listarusuarios;
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_usuarios;
+    private javax.swing.JDialog jd_crearuser;
+    private javax.swing.JDialog jd_listaruser;
+    private javax.swing.JDialog jd_usuarios;
+    private javax.swing.JSpinner js_edad;
+    private javax.swing.JPasswordField pf_pass;
+    private javax.swing.JTable tb_users;
+    private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
+    ArrayList<usuarios> user = new ArrayList();
+    ArrayList<albums> al = new ArrayList();
 }
