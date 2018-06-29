@@ -16,6 +16,13 @@ public class favoritos {
     private String nombre;
     ArrayList<canciones> songs = new ArrayList();
 
+    public favoritos() {
+    }
+
+    public favoritos(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }
