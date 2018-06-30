@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package josephmoscoso_lab9;
-
+//no guarde archivos y hay unos errores pequeños, no se puede eliminar del arbol
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -21,6 +24,7 @@ public class principal extends javax.swing.JFrame {
     public principal() {
         initComponents();
         fav.add(new favoritos("favoritos"));
+        hilocancion h=new hilocancion(horaa);
     }
 
     /**
@@ -118,6 +122,18 @@ public class principal extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         tb_play = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        jd_playlist = new javax.swing.JDialog();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tree = new javax.swing.JTree();
+        jd_favoritos = new javax.swing.JDialog();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jl_favs = new javax.swing.JList<>();
+        jLabel31 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jd_reproduccion = new javax.swing.JDialog();
+        jLabel32 = new javax.swing.JLabel();
+        horaa = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jb_usuarios = new javax.swing.JButton();
         jb_canciones = new javax.swing.JButton();
@@ -673,9 +689,19 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
-        jb_verplay.setText("Ver playlist");
+        jb_verplay.setText("Ver playlists");
+        jb_verplay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_verplayMouseClicked(evt);
+            }
+        });
 
         jb_favoritos.setText("Ver favoritos");
+        jb_favoritos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_favoritosMouseClicked(evt);
+            }
+        });
 
         jb_salir.setText("Salir");
         jb_salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -892,6 +918,108 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel30.setText("PlayLists");
+
+        tree.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("PlayLists");
+        tree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane8.setViewportView(tree);
+
+        javax.swing.GroupLayout jd_playlistLayout = new javax.swing.GroupLayout(jd_playlist.getContentPane());
+        jd_playlist.getContentPane().setLayout(jd_playlistLayout);
+        jd_playlistLayout.setHorizontalGroup(
+            jd_playlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_playlistLayout.createSequentialGroup()
+                .addGroup(jd_playlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_playlistLayout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addComponent(jLabel30))
+                    .addGroup(jd_playlistLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+        jd_playlistLayout.setVerticalGroup(
+            jd_playlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_playlistLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jl_favs.setModel(new DefaultListModel());
+        jScrollPane9.setViewportView(jl_favs);
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel31.setText("Favoritos");
+
+        jButton4.setText("Reproducir cancion seleccionada");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_favoritosLayout = new javax.swing.GroupLayout(jd_favoritos.getContentPane());
+        jd_favoritos.getContentPane().setLayout(jd_favoritosLayout);
+        jd_favoritosLayout.setHorizontalGroup(
+            jd_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_favoritosLayout.createSequentialGroup()
+                .addGroup(jd_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_favoritosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
+                    .addGroup(jd_favoritosLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel31)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jd_favoritosLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_favoritosLayout.setVerticalGroup(
+            jd_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_favoritosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addGap(22, 22, 22))
+        );
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel32.setText("Reproduccion");
+
+        horaa.setText("jLabel33");
+
+        javax.swing.GroupLayout jd_reproduccionLayout = new javax.swing.GroupLayout(jd_reproduccion.getContentPane());
+        jd_reproduccion.getContentPane().setLayout(jd_reproduccionLayout);
+        jd_reproduccionLayout.setHorizontalGroup(
+            jd_reproduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_reproduccionLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addGroup(jd_reproduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(horaa)
+                    .addComponent(jLabel32))
+                .addContainerGap(173, Short.MAX_VALUE))
+        );
+        jd_reproduccionLayout.setVerticalGroup(
+            jd_reproduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_reproduccionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel32)
+                .addGap(18, 18, 18)
+                .addComponent(horaa)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -981,7 +1109,7 @@ public class principal extends javax.swing.JFrame {
         jd_usuarios.setModal(true);
         jd_usuarios.pack();
         jd_usuarios.setLocationRelativeTo(this);
-        jd_usuarios.setVisible(true);
+        jd_usuarios.setVisible(true);//no guarde archivos y hay unos errores pequeños, no se puede eliminar del arbol
     }//GEN-LAST:event_jb_usuariosMouseClicked
 
     private void jb_crearusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearusuarioMouseClicked
@@ -1332,6 +1460,65 @@ public class principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jd_listas, "Error fatal");
         }
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jb_verplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_verplayMouseClicked
+        // TODO add your handling code here:
+        try {
+            DefaultTreeModel m = (DefaultTreeModel) tree.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            for (int i = 0; i < play.size(); i++) {
+                DefaultMutableTreeNode m1 = new DefaultMutableTreeNode(play.get(i).getNombre());
+                for (int j = 0; j < play.get(i).getSongs().size(); j++) {
+                    DefaultMutableTreeNode m2 = new DefaultMutableTreeNode(play.get(i).getSongs().get(j).getNombre());
+                    m1.add(m2);
+                }
+                raiz.add(m1);
+            }
+            m.reload();
+            jd_playlist.setModal(true);
+            jd_playlist.pack();
+            jd_playlist.setLocationRelativeTo(this);
+            jd_playlist.setVisible(true);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jb_verplayMouseClicked
+
+    private void jb_favoritosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_favoritosMouseClicked
+        // TODO add your handling code here:
+        try {
+            DefaultListModel m = new DefaultListModel();
+            for (int i = 0; i < fav.get(0).getSongs().size(); i++) {
+                m.addElement(fav.get(0).getSongs().get(i));
+            }
+            jl_favs.setModel(m);
+            jd_favoritos.setModal(true);
+            jd_favoritos.pack();
+            jd_favoritos.setLocationRelativeTo(this);
+            jd_favoritos.setVisible(true);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jb_favoritosMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        try {
+            int lim=0;
+            if (jl_favs.getSelectedIndex() >= 0) {
+                for (int i = 0; i < fav.get(0).getSongs().size(); i++) {
+                    if (fav.get(0).getSongs().get(i).getNombre().equals(jl_favs.getSelectedValue().toString())) {
+                        lim=fav.get(0).getSongs().get(i).getDuracion();
+                    }
+                }
+                //hilocancion h=new hilocancion(lim,horaa);
+               // h.start();
+                jd_reproduccion.setModal(true);
+                jd_reproduccion.pack();
+                jd_reproduccion.setLocationRelativeTo(this);
+                jd_reproduccion.setVisible(true);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
     public void actplaylist() {
         try {
             DefaultTableModel m = new DefaultTableModel();
@@ -1460,9 +1647,11 @@ public class principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog canciones;
+    private javax.swing.JLabel horaa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1486,6 +1675,9 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1499,6 +1691,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton jb_agregarcancion;
     private javax.swing.JButton jb_albums;
     private javax.swing.JButton jb_canciones;
@@ -1528,12 +1722,16 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_crearuser;
     private javax.swing.JDialog jd_entrar;
     private javax.swing.JDialog jd_explorar;
+    private javax.swing.JDialog jd_favoritos;
     private javax.swing.JDialog jd_listaralbum;
     private javax.swing.JDialog jd_listaruser;
     private javax.swing.JDialog jd_listas;
     private javax.swing.JDialog jd_loginn;
+    private javax.swing.JDialog jd_playlist;
     private javax.swing.JDialog jd_playlistm;
+    private javax.swing.JDialog jd_reproduccion;
     private javax.swing.JDialog jd_usuarios;
+    private javax.swing.JList<String> jl_favs;
     private javax.swing.JSpinner js_duracion;
     private javax.swing.JSpinner js_edad;
     private javax.swing.JPasswordField pf_pass;
@@ -1552,9 +1750,11 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JPasswordField tf_passlog;
     private javax.swing.JTextField tf_user;
     private javax.swing.JTextField tf_userlog;
+    private javax.swing.JTree tree;
     // End of variables declaration//GEN-END:variables
     ArrayList<usuarios> user = new ArrayList();
     ArrayList<albums> al = new ArrayList();
     ArrayList<playlist> play = new ArrayList();
     ArrayList<favoritos> fav = new ArrayList();
+    hilocancion h;
 }
