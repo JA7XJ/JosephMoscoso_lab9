@@ -1526,7 +1526,7 @@ public class principal extends javax.swing.JFrame {
                     }
                 }
                // hilocancion h=new hilocancion(lim,horaa);
-                h.start();
+               // h.start();
                 jd_reproduccion.setModal(true);
                 jd_reproduccion.pack();
                 jd_reproduccion.setLocationRelativeTo(this);
@@ -1781,5 +1781,5 @@ public class principal extends javax.swing.JFrame {
     ArrayList<albums> al = new ArrayList();
     ArrayList<playlist> play = new ArrayList();
     ArrayList<favoritos> fav = new ArrayList();
-    hilocancion h;
+    hilocancion h;//
 }
