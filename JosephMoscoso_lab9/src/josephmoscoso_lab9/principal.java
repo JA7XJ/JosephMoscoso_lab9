@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package josephmoscoso_lab9;
-//no guarde archivos y hay unos errores pequeños, no se puede eliminar del arbol
+//no guarde archivos y hay unos errores pequeños, no se puede eliminar del arbol, el hilo no funciona
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -24,7 +24,7 @@ public class principal extends javax.swing.JFrame {
     public principal() {
         initComponents();
         fav.add(new favoritos("favoritos"));
-        hilocancion h=new hilocancion(horaa);
+       // hilocancion h=new hilocancion(horaa);
     }
 
     /**
@@ -126,6 +126,7 @@ public class principal extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tree = new javax.swing.JTree();
+        jButton5 = new javax.swing.JButton();
         jd_favoritos = new javax.swing.JDialog();
         jScrollPane9 = new javax.swing.JScrollPane();
         jl_favs = new javax.swing.JList<>();
@@ -926,6 +927,13 @@ public class principal extends javax.swing.JFrame {
         tree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane8.setViewportView(tree);
 
+        jButton5.setText("Eliminar seleccionado");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_playlistLayout = new javax.swing.GroupLayout(jd_playlist.getContentPane());
         jd_playlist.getContentPane().setLayout(jd_playlistLayout);
         jd_playlistLayout.setHorizontalGroup(
@@ -934,20 +942,28 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(jd_playlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_playlistLayout.createSequentialGroup()
                         .addGap(184, 184, 184)
-                        .addComponent(jLabel30))
+                        .addComponent(jLabel30)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jd_playlistLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)))
+                .addContainerGap())
         );
         jd_playlistLayout.setVerticalGroup(
             jd_playlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_playlistLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel30)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGroup(jd_playlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_playlistLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_playlistLayout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jButton5)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jl_favs.setModel(new DefaultListModel());
@@ -1505,12 +1521,12 @@ public class principal extends javax.swing.JFrame {
             int lim=0;
             if (jl_favs.getSelectedIndex() >= 0) {
                 for (int i = 0; i < fav.get(0).getSongs().size(); i++) {
-                    if (fav.get(0).getSongs().get(i).getNombre().equals(jl_favs.getSelectedValue().toString())) {
+                    if (fav.get(0).getSongs().get(i).getNombre().equals(jl_favs.getSelectedValue())) {
                         lim=fav.get(0).getSongs().get(i).getDuracion();
                     }
                 }
-                //hilocancion h=new hilocancion(lim,horaa);
-               // h.start();
+               // hilocancion h=new hilocancion(lim,horaa);
+                h.start();
                 jd_reproduccion.setModal(true);
                 jd_reproduccion.pack();
                 jd_reproduccion.setLocationRelativeTo(this);
@@ -1519,6 +1535,14 @@ public class principal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        try {
+            tree.removeSelectionPath(tree.getSelectionPath());
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
     public void actplaylist() {
         try {
             DefaultTableModel m = new DefaultTableModel();
@@ -1652,6 +1676,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

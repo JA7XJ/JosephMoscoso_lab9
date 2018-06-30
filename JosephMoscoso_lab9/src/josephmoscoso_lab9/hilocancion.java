@@ -15,7 +15,7 @@ import javax.swing.JMenu;
 public class hilocancion extends Thread {
     private int lim;
     private JLabel menuhora;
-
+    
     public hilocancion(int lim, JLabel menuhora) {
         this.lim = lim;
         this.menuhora = menuhora;
@@ -37,7 +37,7 @@ public class hilocancion extends Thread {
     @Override
     public void run() {
         int a=0;
-        while (true) {
+        while (a<=lim) {
             try {
                 menuhora.setText(Integer.toString(a));
                 a++;
